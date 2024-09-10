@@ -63,9 +63,11 @@ func (check *Checker) usage(scope *Scope) {
 	sort.Slice(unused, func(i, j int) bool {
 		return cmpPos(unused[i].pos, unused[j].pos) < 0
 	})
+    /*
 	for _, v := range unused {
 		check.softErrorf(v.pos, UnusedVar, "%s declared and not used", v.name)
 	}
+    */
 
 	for _, scope := range scope.children {
 		// Don't go inside function literal scopes a second time;
@@ -811,6 +813,7 @@ func (check *Checker) typeSwitchStmt(inner stmtContext, s *syntax.SwitchStmt, gu
 	// we don't want to use the same variable for all scopes and change the
 	// variable type underfoot.)
 	if lhs != nil {
+        /*
 		var used bool
 		for _, v := range lhsVars {
 			if v.used {
@@ -821,6 +824,7 @@ func (check *Checker) typeSwitchStmt(inner stmtContext, s *syntax.SwitchStmt, gu
 		if !used {
 			check.softErrorf(lhs, UnusedVar, "%s declared and not used", lhs.Value)
 		}
+        */
 	}
 }
 

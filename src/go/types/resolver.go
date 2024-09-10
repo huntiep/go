@@ -733,6 +733,7 @@ func (check *Checker) errorUnusedPkg(obj *PkgName) {
 	// packages containing unconventional package declarations.
 	// Note that this uses / always, even on Windows, because Go import
 	// paths always use forward slashes.
+    /*
 	path := obj.imported.path
 	elem := path
 	if i := strings.LastIndex(elem, "/"); i >= 0 {
@@ -743,6 +744,7 @@ func (check *Checker) errorUnusedPkg(obj *PkgName) {
 	} else {
 		check.softErrorf(obj, UnusedImport, "%q imported as %s and not used", path, obj.name)
 	}
+    */
 }
 
 // dir makes a good-faith attempt to return the directory
